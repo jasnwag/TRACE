@@ -7,14 +7,19 @@ from BodyTracking import bodyMap
 from mediapipe import solutions
 from BallDetection import BallDetector
 from BallMapping import euclideanDistance, withinCircle
-
+import sys
+if sys.platform == "win32":
+    root = 'C:/Users/Jason Wang/OneDrive - University of Virginia/'
+    #os.chdir(root + 'Coding/pose_youtube/code/scripts')
+else: 
+    root = '/Users/jasonwang/OneDrive - University of Virginia/'
 # Retrieve video from video file
 video = VideoCapture(videoFile)
 width = int(video.get(3))
 height = int(video.get(4))
 
 fourcc = VideoWriter_fourcc(*'mp4v')
-clip = VideoWriter('../Videos/Video.mp4',fourcc,25.0,(widthP,heightP))
+clip = VideoWriter(root + 'Coding/pose_youtube/data/videos/Video.mp4',fourcc,25.0,(widthP,heightP))
 processedFrame = None
 
 # Ratios of the crop width, height, and offsets

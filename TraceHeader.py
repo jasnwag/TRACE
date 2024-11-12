@@ -1,8 +1,13 @@
 from os import path
 from sys import exit
-
+import sys
+if sys.platform == "win32":
+    root = 'C:/Users/Jason Wang/OneDrive - University of Virginia/'
+    #os.chdir(root + 'Coding/pose_youtube/code/scripts')
+else: 
+    root = '/Users/jasonwang/OneDrive - University of Virginia/'
 # Video to be used placed in Clips folder
-videoFile = '../Videos/Clips/Clip3.mp4'
+videoFile = root + "Coding/pose_youtube/data/videos/broadcast_tennis/wimbledon_2019_federer_nadal_trimmed.mp4"
 
 def checkBounds(frame1, frame2):
     flag = 0
